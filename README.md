@@ -1,7 +1,15 @@
-# Run
+# Build
 ```bash
+docker buildx create --name mybuilder --use                                                                                                                                                                                ✔ │ 1m 24s  │ 09:25:07  
+docker buildx inspect --bootstrap
+docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t biltisberger/lastibaer:latest --push .
+
 docker build -t biltisberger/lastibaer:latest .
 docker push biltisberger/lastibaer:latest
+```
+
+# Run
+```bash
 docker run -e TRAFFIC_RATE=20 -e CPU_LOAD=70 -e RAM_LOAD=100 -e INTERVAL_MINUTES=1 -e DOWNLOAD_SIZE_LIMIT=5m biltisberger/lastibaer:latest
 ```
 
